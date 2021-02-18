@@ -5,9 +5,15 @@
 
 
 void trackerCallback(const ar_track_alvar_msgs::AlvarMarkers::ConstPtr &data){
-  if(!data->markers.empty()){
+  geometry_msgs::PoseStamped target_position;
+  if(!data->markers.empty() && data->markers[0].id == 0){
+    target_position.header = data->markers[0].header;
+    target_position.pose = data->markers[0].pose.pose;
     ROS_INFO("the data is [%f] and frame_id is [%d]", data->markers[0].pose.pose.position.x,
                                                       data->markers[0].id);
+  }
+  else{
+    ROS_INFO("Target Not Found! Waiting for Target!");
   }
 }
 
