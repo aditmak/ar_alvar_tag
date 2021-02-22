@@ -1,6 +1,5 @@
 #include "ros/ros.h"
 #include "geometry_msgs/PoseStamped.h"
-#include "ar_track_alvar_msgs/AlvarMarker.h"
 #include "ar_track_alvar_msgs/AlvarMarkers.h"
 
 
